@@ -1,0 +1,126 @@
+@import "../../responsive.scss";
+
+.homePage {
+  display: flex;
+  height: calc(100vh - 80px);
+  width: 100%;
+
+  .textContainer {
+    flex: 3;
+    animation: slideInLeft 1s ease-out forwards;
+
+    .wrapper {
+      padding-right: 100px;
+      padding-left: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 50px;
+      height: 100%;
+      
+      @include lg{
+        padding-right: 50px;
+        padding-left: 30px;
+      }
+
+      @include md{
+        padding: 0 20px;
+      }
+
+      @include sm{
+        justify-content: flex-start;
+        padding-top: 50px;
+      }
+
+      .title {
+        font-size: 54px;
+        font-weight: 800;
+        line-height: 1.1;
+        color: #111;
+
+        @include lg {
+          font-size: 42px;
+        }
+      }
+
+      .subtitle {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      .boxes {
+        display: flex;
+        justify-content: space-between;
+
+        @include sm {
+          display: none;
+        }
+
+        .box {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          
+          h1 {
+            font-size: 36px;
+            color: #15947b;
+            font-weight: bold;
+          }
+
+          h2 {
+            font-size: 14px;
+            font-weight: 400;
+            color: #777;
+          }
+        }
+      }
+    }
+  }
+
+  .imgContainer {
+    flex: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #fbfbfb;
+    overflow: hidden;
+    animation: slideInRight 1.2s ease-out forwards;
+
+    @include md {
+      display: none;
+    }
+
+    img {
+      width: 110%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      right: 0;
+      border-top-left-radius: 200px;
+      box-shadow: -10px 0px 30px rgba(0,0,0,0.1);
+    }
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
